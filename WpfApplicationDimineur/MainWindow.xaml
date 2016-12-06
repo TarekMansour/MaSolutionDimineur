@@ -1,0 +1,209 @@
+﻿<Window Loaded="Window_Loaded" x:Class="WpfApplicationDimineur.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationDimineur"
+        mc:Ignorable="d"
+        Title="Démineur"  FontWeight="Bold" FontSize="10" MaxWidth="800"
+        WindowStartupLocation="CenterScreen" 
+        Icon="/WpfApplicationDimineur;component/Resources/dm2.ico">
+    <ScrollViewer Name="scrollAreaPageView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <!--GroupBox ==> Niveau-->
+                <GroupBox Header="Niveau" BorderBrush="#FF0D91DC" Foreground="#FF1DB22A" FontSize="16" FontFamily="Segoe Print" Margin="5" Grid.Row="0" >
+                    <ContentControl >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <!--Radio Bouton-->
+                            <RadioButton x:Name="optNiv1" FontFamily="Century Gothic" FontSize="15"  Content="Débutant " Grid.Row="0"  Margin="4" Checked="optNiv1_Checked" />
+                            <RadioButton x:Name="optNiv2" FontFamily="Century Gothic" FontSize="15" Content="Intermédiaire" Grid.Row="1"  Margin="4" />
+                            <RadioButton x:Name="optNiv3" FontFamily="Century Gothic" FontSize="15" Content="Avancé" Grid.Row="2"  Margin="4" />
+
+                        </Grid>
+                    </ContentControl>
+                </GroupBox>
+                <!--GroupBox ==> btChiffre AND btVide-->
+                <GroupBox Header="Couleur" BorderBrush="#FF0D91DC" Foreground="#FF1DB22A" FontSize="16" FontFamily="Segoe Print" Margin="5" Grid.Column="1"  >
+                    <ContentControl >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--StackPanel for btChiffre-->
+                            <StackPanel Grid.Column="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <xctk:ColorPicker x:Name="_colorPicker1"   VerticalAlignment="Top"  Grid.Column="0"/>
+                                    <Label Content="Chiffre" HorizontalAlignment="Right" FontFamily="Segoe Print" FontSize="14" Grid.Column="1" Margin="0,0,17,0"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!--StackPanel for btVide-->
+                            <StackPanel Grid.Column="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <xctk:ColorPicker x:Name="_colorPicker2"  VerticalAlignment="Top"  Grid.Column="0"/>
+                                    <Label Content="Case vide" HorizontalAlignment="Right" FontFamily="Segoe Print" FontSize="14" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </ContentControl>
+                </GroupBox>
+
+                <!--GroupBox ==> btChiffre AND btVide-->
+                <GroupBox Header="Chrono" BorderBrush="#FF0D91DC" Foreground="#FF1DB22A" FontSize="16" FontFamily="Segoe Print" Margin="5" Grid.Column="1">
+                    <ContentControl >
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.4*" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox x:Name="txtChrono" Margin="2" Grid.Column="0"/>
+                            <CheckBox x:Name="chkChrono" Content="Activer Chrono" FontFamily="Century Gothic" FontSize="15" HorizontalAlignment="Center" Margin="12,10,10,-6"  Grid.Column="1" />
+
+                        </Grid>
+                    </ContentControl>
+                </GroupBox>
+
+                <StackPanel Grid.Column="3" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--Button1: btImage-->
+                        <StackPanel HorizontalAlignment="Center"  Grid.Column="0" Width="70" Margin="14,0,15,0">
+                            <StackPanel>
+                                <Button x:Name="btImage" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Width="70" Height="50" Margin="0,2" Click="btImage_Click" >
+                                    <Image x:Name="imgPhoto"  Source="/WpfApplicationDimineur;component/Resources/b1.jpg" Height="49"  />
+                                </Button>
+                            </StackPanel>
+                            <Label Content="Image" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="17"/>
+                        </StackPanel>
+
+                        <!--Button2: btMusic-->
+                        <StackPanel HorizontalAlignment="Center"  Grid.Column="1" Width="70" Margin="14,0,15,0">
+                            <StackPanel>
+                                <Button x:Name="btMusic" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Width="50" Height="50" Margin="2" >
+                                    <Image  Source="/WpfApplicationDimineur;component/Resources/Music3.ico" />
+                                </Button>
+                            </StackPanel>
+                            <Label Content="Music" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="17"/>
+                        </StackPanel>
+
+                        <!--Button3: btStartGame-->
+                        <StackPanel HorizontalAlignment="Center"  Grid.Column="2" Width="70" Margin="14,0,15,0">
+                            <StackPanel>
+                                <Button x:Name="btStart" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Width="50" Height="50" Margin="2" Click="btStart_Click" >
+                                    <Image  Source="/WpfApplicationDimineur;component/Resources/Start1.ico" />
+                                </Button>
+                            </StackPanel>
+                            <Label Content="Start" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="17"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel >
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="0,0,27,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <!--StackPanelEtiquette-->
+                <StackPanel Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--StackPanelBombs-->
+                        <StackPanel Grid.Column="0" Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblBombs" Grid.Column="0" Content="Bombs: " HorizontalAlignment="Left"  FontFamily="Century Gothic" FontSize="15" />
+                                <TextBox x:Name="TextBoxBombs" Grid.Column="1" Margin="0,0,32,0" />
+                            </Grid>
+                        </StackPanel>
+
+                        <!--StackPanelChrono-->
+                        <StackPanel Grid.Column="1" Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblChrono" Grid.Column="0" Content="Chrono: " HorizontalAlignment="Left"  FontFamily="Century Gothic" FontSize="15" />
+                                <TextBox x:Name="TextBoxChrono" Grid.Column="1" Margin="0,0,32,0" />
+                            </Grid>
+                        </StackPanel>
+
+                        <!--StackPanelTime-->
+                        <StackPanel Grid.Column="2" Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="lblTime" Grid.Column="0" Content="Heure: " HorizontalAlignment="Left"  FontFamily="Century Gothic" FontSize="15" />
+                                <TextBox x:Name="TextBoxTime" Grid.ColumnSpan="2" Margin="62,0,0,0" />
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <!--PanelGame-->
+                <StackPanel x:Name="PanelGame"   Margin="40,20,20,20" >
+                    <!--<StackPanel.Background>
+                    <ImageBrush x:Name="PanelGame_ImageBrush" ImageSource="/WpfApplicationDimineur;component/Resources/back3.jpg"/>
+                </StackPanel.Background>-->
+
+                    <Grid x:Name="GameGrid" Margin="20,20,20,20">
+
+                    </Grid>
+
+                </StackPanel>
+
+
+            </StackPanel>
+            
+    </Grid>
+
+    </ScrollViewer>
+
+</Window>
