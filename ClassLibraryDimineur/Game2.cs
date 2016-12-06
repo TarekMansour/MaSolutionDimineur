@@ -8,6 +8,6 @@ namespace ClassLibraryDimineur
 {
     public class Game2
     {
-       // Game myGame = new Game();
+       // Game myGame =  new Game();
     }
 }

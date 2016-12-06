@@ -8,7 +8,7 @@ namespace ConsoleApplicationDimineur
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("bonjour");
+            Console.WriteLine("bonjour :))");
             //on ajoute public à la classe game pour bien visualiser l'objet myGame
 
             Game myGame = new Game(GameLevel.Beginner);
