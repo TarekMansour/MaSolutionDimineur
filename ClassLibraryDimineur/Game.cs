@@ -11,7 +11,7 @@ namespace ClassLibraryDimineur
         //getter+setter <=> properties
         //getter+setter d'une façon classique
         public byte GetBOmbs2()
-        { return this.bombs2; }
+        { return this.bombs2;  }
 
         //protected method càd visualisee pour la classe elle meme et ces filles
         public void SetBombs2(byte Bombs)
